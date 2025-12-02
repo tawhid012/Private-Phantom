@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Professional Multi‑Chain Wallet Generator</title>
+<style>
+/* Reset & base styles */
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0b0b0b; color: #fff;}
+header, footer {width: 100%; background: #111; text-align: center; padding: 20px 0; box-shadow: 0 2px 12px rgba(0,255,255,0.3);}
+header h1 {color: #00ffff; text-shadow: 0 0 15px #00ffff; font-size: 32px;}
+nav {display: flex; justify-content: center; gap: 30px; margin-top: 10px;}
+nav a {color: #00ffff; text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s;}
+nav a:hover {color: #0ff;}
+
+/* Banner */
+.banner {
+  width: 100%;
+  background: linear-gradient(135deg,#0ff,#00f);
+  padding: 60px 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  border-radius: 12px;
+  margin: 20px 0;
+  text-shadow: 0 0 10px #0ff;
+}
+
+/* Container & button */
+.container {max-width: 1000px; margin: 40px auto; padding: 0 20px;}
+button#genBtn {
+  padding: 16px 40px;
+  border: none;
+  background: #000;
+  color: #0ff;
+  border-radius: 14px;
+  cursor: pointer;
+  margin: 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(0,255,255,0.5);
+  transition: all 0.3s ease;
+}
+button#genBtn:hover {
+  background: #0ff;
+  color: #000;
+  box-shadow: 0 0 35px rgba(0,255,255,0.8);
+  transform: translateY(-3px);
+}
+
+/* Wallet boxes */
+.wallet-box {
+  width: 100%;
+  background: #111;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  border: 1px solid #0ff;
+  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.wallet-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 50px rgba(0,255,255,0.6);
+}
+.title {font-size: 22px; margin-bottom: 12px; font-weight: bold; color: #0ff; text-shadow: 0 0 6px #0ff;}
+.label {opacity: 0.8; margin-top: 12px; font-weight: 500;}
+.value {
+  word-wrap: break-word;
+  margin-bottom: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  background: #0a0a0a;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #0ff;
+  color: #0ff;
+}
+canvas {
+  display: block;
+  margin: 12px auto;
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,255,255,0.3);
+}
+footer p {font-size: 14px; color: #888; margin-top: 10px;}
+@media (max-width: 768px){
+  header h1{font-size: 24px;}
+  .banner{font-size:22px; padding:40px 15px;}
+  button#genBtn{font-size:16px; padding:14px 28px;}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Private Phantom</h1>
+<nav>
+<a href="#generator">Wallet Generator</a>
+<a href="#about">About</a>
+<a href="#contact">Blogs</a>
+</nav>
+</header>
+
+<div class="banner">Generate Secure Wallets for Ethereum, BNB, Bitcoin, Tron & TON</div>
+
+<div class="container" id="generator">
+<button id="genBtn">Generate All Wallets</button>
+<div id="output"></div>
+</div>
+
+
+
+<footer>
+<p>&copy; 2025 Multi‑Chain Wallet Generator. All rights reserved.</p>
+</footer>
+
+<!-- Libraries -->
+<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bitcoinjs-lib@6.1.0/dist/bitcoinjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tronweb/dist/TronWeb.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tonweb/dist/tonweb.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script>
+window.onload = function() {
+    function createBox(title, address, privateKey) {
+        const div = document.createElement("div");
+        div.className = "wallet-box";
+        div.innerHTML = `
+            <div class="title">${title}</div>
+            <div class="label">Address:</div>
+            <div class="value">${address}</div>
+            <canvas id="qr_${title}_addr"></canvas>
+            <div class="label">Private Key:</div>
+            <div class="value">${privateKey}</div>
+            <canvas id="qr_${title}_pk"></canvas>
+        `;
+        setTimeout(() => {
+            QRCode.toCanvas(document.getElementById(`qr_${title}_addr`), address);
+            QRCode.toCanvas(document.getElementById(`qr_${title}_pk`), privateKey);
+        }, 200);
+        return div;
+    }
+
+    async function generateAll() {
+        const out = document.getElementById("output");
+        out.innerHTML = "";
+
+        // Ethereum + BNB (EVM)
+        const evmWalletETH = ethers.Wallet.createRandom();
+        const evmWalletBNB = ethers.Wallet.createRandom();
+        out.appendChild(createBox("Ethereum", evmWalletETH.address, evmWalletETH.privateKey));
+        out.appendChild(createBox("BNB Smart Chain", evmWalletBNB.address, evmWalletBNB.privateKey));
+
+        // Bitcoin
+        if(typeof bitcoinjs !== 'undefined') {
+            const btc = bitcoinjs.ECPair.makeRandom();
+            const btcAddress = bitcoinjs.payments.p2pkh({ pubkey: btc.publicKey }).address;
+            out.appendChild(createBox("Bitcoin", btcAddress, btc.toWIF()));
+        } else {
+            out.appendChild(createBox("Bitcoin", "Library not loaded", "Library not loaded"));
+        }
+
+        // Tron
+        if(typeof TronWeb !== 'undefined') {
+            const tron = TronWeb.utils.accounts.generateAccount();
+            out.appendChild(createBox("Tron", tron.address.base58, tron.privateKey));
+        }
+
+        // TON
+        if(typeof TonWeb !== 'undefined') {
+            const ton = new TonWeb();
+            const seed = TonWeb.utils.newSeed();
+            const kp = TonWeb.utils.keyPairFromSeed(seed);
+            const tonAddress = TonWeb.utils.bytesToHex(kp.publicKey);
+            const tonPK = TonWeb.utils.bytesToHex(kp.secretKey);
+            out.appendChild(createBox("TON", tonAddress, tonPK));
+        }
+    }
+
+    document.getElementById('genBtn').onclick = generateAll;
+};
+</script>
+</body>
+</html>
