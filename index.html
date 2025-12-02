@@ -3,118 +3,244 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Private Phantom</title>
+
+<title>Private Phantom | Secure Multi-Chain Wallet Generator</title>
+
+<!-- SEO -->
+<meta name="description" content="Private Phantom is a secure offline multi-chain wallet generator for Ethereum, BNB, Bitcoin, Tron, and TON. Generate wallets with QR codes safely and privately." />
+<meta name="keywords" content="crypto wallet generator, offline wallet, bitcoin wallet, ethereum wallet, tron wallet, ton wallet, multi-chain wallet, secure crypto tools" />
+<meta name="author" content="Private Phantom" />
+<meta name="robots" content="index, follow" />
+
+<!-- Canonical Link -->
+<link rel="canonical" href="https://privatephantom.netlify.app/" />
+
+<!-- Favicon -->
+<link rel="icon" href="https://privatephantom.netlify.app/icon.png" type="image/png" />
+
+<!-- Open Graph (Facebook / WhatsApp) -->
+<meta property="og:title" content="Private Phantom – Secure Multi-Chain Wallet Generator" />
+<meta property="og:description" content="Generate Bitcoin, Ethereum, BNB, Tron, and TON wallets securely offline with QR support." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://privatephantom.netlify.app/" />
+<meta property="og:image" content="https://privatephantom.netlify.app/og-image.png" />
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Private Phantom – Secure Multi-Chain Wallet Generator" />
+<meta name="twitter:description" content="Generate Bitcoin, Ethereum, BNB, Tron, and TON wallets securely offline with QR support." />
+<meta name="twitter:image" content="https://privatephantom.netlify.app/og-image.png" />
+
 <style>
 /* Reset & base styles */
-* {margin: 0; padding: 0; box-sizing: border-box;}
-body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0b0b0b; color: #fff;}
-header, footer {width: 100%; background: #111; text-align: center; padding: 20px 0; box-shadow: 0 2px 12px rgba(0,255,255,0.3);}
-header h1 {color: #00ffff; text-shadow: 0 0 15px #00ffff; font-size: 32px;}
-nav {display: flex; justify-content: center; gap: 30px; margin-top: 10px;}
-nav a {color: #00ffff; text-decoration: none; font-weight: 600; font-size: 16px; transition: 0.3s;}
-nav a:hover {color: #0ff;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:#0b0b0b;
+  color:#fff;
+  line-height:1.6;
+}
 
-/* Hero/Banner */
-.hero {
+/* Header */
+header{
+  width:100%;
+  background:#111;
+  text-align:center;
+  padding:25px 0;
+  box-shadow:0 2px 12px rgba(0,255,255,0.3);
+}
+header h1{
+  color:#00ffff;
+  text-shadow:0 0 15px #00ffff;
+  font-size:34px;
+  font-weight:700;
+}
+nav{
+  display:flex;
+  justify-content:center;
+  gap:35px;
+  margin-top:12px;
+}
+nav a{
+  color:#00ffff;
+  font-size:16px;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.3s;
+}
+nav a:hover{
+  opacity:0.8;
+}
+
+/* Hero Section */
+.hero{
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
   text-align:center;
-  padding:80px 20px; /* smaller than original */
-  background:linear-gradient(135deg,#0ff,#00f);
+  padding:90px 20px;
+  background:linear-gradient(145deg,#00ffff,#0047ff);
+  border-radius:16px;
+  max-width:1100px;
+  margin:40px auto;
+  box-shadow:0 0 30px rgba(0,255,255,0.4);
+}
+.hero h2{
+  font-size:40px;
+  color:#000;
+  margin-bottom:15px;
+  font-weight:700;
+}
+.hero p{
+  font-size:18px;
+  color:#000;
+  max-width:700px;
+  margin-bottom:30px;
+}
+.cta-button{
+  padding:16px 45px;
+  font-size:18px;
+  font-weight:700;
+  color:#0ff;
+  background:#000;
   border-radius:12px;
-  margin:20px 0;
+  text-decoration:none;
+  box-shadow:0 0 20px rgba(0,255,255,0.5);
+  transition:0.3s;
 }
-.hero h2 {font-size:36px; color:#000; margin-bottom:20px;}
-.hero p {font-size:17px; color:#000; margin-bottom:30px;}
-
-/* Get Started button */
-.hero .cta-button {
-  display: inline-block;
-  padding: 16px 40px;
-  font-size: 18px;
-  font-weight: 700;
-  color: #0ff;
-  background: #000;
-  border-radius: 12px;
-  text-decoration: none;
-  box-shadow: 0 0 20px rgba(0,255,255,0.5);
-  transition: all 0.3s ease;
-}
-.hero .cta-button:hover {
-  background: #0ff;
-  color: #000;
-  box-shadow: 0 0 30px rgba(0,255,255,0.8);
-  transform: translateY(-3px);
+.cta-button:hover{
+  background:#0ff;
+  color:#000;
+  transform:translateY(-4px);
+  box-shadow:0 0 30px rgba(0,255,255,0.8);
 }
 
-.section {max-width:1000px; margin:60px auto; padding:0 20px;}
-.section h3 {font-size:28px; color:#00ffff; margin-bottom:20px; text-shadow:0 0 8px #0ff;}
-.section p {font-size:16px; line-height:1.6; color:#ccc;}
-.features {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:30px;}
-.feature-card {background:#111; padding:20px; border-radius:12px; box-shadow:0 0 20px rgba(0,255,255,0.3); transition:transform 0.3s;}
-.feature-card:hover {transform:translateY(-5px); box-shadow:0 0 40px rgba(0,255,255,0.5);}
-footer {text-align:center; padding:20px 0; background:#111; color:#888;}
-@media(max-width:768px){.hero h2{font-size:28px}.hero p{font-size:15px}}
+/* Section Wrapper */
+.section{
+  max-width:1100px;
+  margin:70px auto;
+  padding:0 20px;
+}
+.section h3{
+  font-size:30px;
+  color:#00ffff;
+  margin-bottom:18px;
+  text-shadow:0 0 8px #00ffff;
+}
+
+/* Features Grid */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+  margin-top:25px;
+}
+.feature-card{
+  background:#111;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 0 20px rgba(0,255,255,0.3);
+  transition:0.3s;
+}
+.feature-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 40px rgba(0,255,255,0.5);
+}
+.feature-card h4{
+  font-size:20px;
+  margin-bottom:10px;
+  color:#0ff;
+}
+
+/* Footer */
+footer{
+  text-align:center;
+  padding:28px 20px;
+  background:#111;
+  color:#888;
+  margin-top:60px;
+  box-shadow:0 -2px 12px rgba(0,255,255,0.2);
+}
+footer a{
+  color:#0ff;
+  text-decoration:none;
+  margin:0 10px;
+}
+footer p{
+  margin:8px 0;
+}
+
+@media(max-width:768px){
+  header h1{font-size:28px;}
+  .hero h2{font-size:28px;}
+  .hero p{font-size:16px;}
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<h1>Private Phantom</h1>
-<nav>
-<a href="#features">Features</a>
-<a href="#about">About</a>
-<a href="blogs.html">Blogs</a>
-</nav>
+  <h1>Private Phantom</h1>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="blogs.html">Blogs</a>
+  </nav>
 </header>
 
 <section class="hero">
-<h2>Secure Wallets for Multiple Blockchains</h2>
-<p>Generate Ethereum, BNB, Bitcoin, Tron, and TON wallets safely offline with QR codes and easy access.</p>
-<a href="generator.html" class="cta-button">Get Started</a>
+  <h2>Secure Wallets for Multiple Blockchains</h2>
+  <p>Generate Ethereum, BNB, Bitcoin, Tron, and TON wallets safely offline with QR codes and complete privacy.</p>
+  <a href="generator.html" class="cta-button">Get Started</a>
 </section>
 
 <section class="section" id="features">
-<h3>Features</h3>
-<div class="features">
-<div class="feature-card"><h4>Offline Security</h4><p>Your private keys are generated locally and never sent online.</p></div>
-<div class="feature-card"><h4>Multi-Chain Support</h4><p>Create wallets for Ethereum, BNB, Bitcoin, Tron, and TON in one place.</p></div>
-<div class="feature-card"><h4>QR Codes</h4><p>Quickly scan addresses and keys for easy wallet integration.</p></div>
-<div class="feature-card"><h4>Responsive Design</h4><p>Fully optimized for desktop, tablet, and mobile devices.</p></div>
-</div>
+  <h3>Features</h3>
+
+  <div class="features">
+    <div class="feature-card">
+      <h4>Offline Security</h4>
+      <p>Your private keys are generated locally and never shared online.</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Multi-Chain Support</h4>
+      <p>Create wallets for Ethereum, BNB, Bitcoin, Tron, and TON instantly.</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>QR Code Ready</h4>
+      <p>Scan wallet addresses easily across any compatible wallet app.</p>
+    </div>
+
+    <div class="feature-card">
+      <h4>Fully Responsive</h4>
+      <p>Works smoothly on desktop, tablet, and mobile devices.</p>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="about">
-<section class="container" id="about">
-<h3>About</h3>
-<br>
-<p>
-<strong>Multi‑Chain Wallet Generator</strong> is a secure, offline application designed to help users effortlessly create cryptocurrency wallets across multiple blockchains, including Ethereum, BNB, Bitcoin, Tron, and TON. Built with privacy and security at its core, all wallet keys are generated locally on your device and never transmitted online, ensuring complete control over your funds.  
-</p>
-<p>
-With a user-friendly interface, QR code support, and responsive design, our app makes wallet generation fast, safe, and accessible on desktops, tablets, and mobile devices. Whether you are a beginner or an experienced crypto user, our tool simplifies multi-chain management while maintaining maximum security and transparency.
-</p>
-<p>
-Experience a seamless way to generate and manage wallets without relying on online services or third-party servers. Your keys, your control — fully offline, fully secure.
-</p>
+  <h3>About</h3>
+
+  <p><strong>Private Phantom</strong> is an advanced offline tool built to help users create secure cryptocurrency wallets across Ethereum, BNB, Bitcoin, Tron, and TON. All keys are generated fully offline on your device, giving you complete control and ensuring maximum safety.</p>
+
+  <p>With a clean UI, QR code support, and fast performance, Private Phantom makes crypto wallet creation effortless for beginners and professionals.</p>
+
+  <p>Experience the safest way to generate wallets — no servers, no data collection, no risks.</p>
 </section>
-<br>
-<br>
-<br>
-<br>
 
+<footer>
+  <p>&copy; 2025 Private Phantom. All rights reserved.</p>
 
-
-
-<footer style="background:#111; color:#888; text-align:center; padding:25px 20px; box-shadow:0 -2px 12px rgba(0,255,255,0.2);">
-  <p style="margin-bottom:10px;">&copy; 2025 Multi‑Chain Wallet Generator. All rights reserved.</p>
   <p>
-    <a href="#generator" style="color:#0ff; text-decoration:none; margin:0 10px;">Wallet Generator</a> |
-    <a href="#about" style="color:#0ff; text-decoration:none; margin:0 10px;">About</a> |
-    <a href="#contact" style="color:#0ff; text-decoration:none; margin:0 10px;">Contact</a>
+    <a href="generator.html">Wallet Generator</a> |
+    <a href="#about">About</a> |
+    <a href="contact.html">Contact</a>
   </p>
-  <p style="margin-top:10px; font-size:13px; opacity:0.7;">Secure, offline, multi-chain wallets in one place</p>
+
+  <p style="font-size:13px;opacity:0.7;">Secure, offline, multi-chain wallets in one place.</p>
 </footer>
 
 </body>
