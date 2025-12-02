@@ -3,192 +3,206 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Private Phantom – Multi-Chain Wallet Generator</title>
+<title>Professional Multi-Chain Wallet Generator</title>
 
 <style>
-/* ---------- RESET ---------- */
+/* RESET */
 * {margin: 0; padding: 0; box-sizing: border-box;}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #050505;
-  color: #fff;
-  overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #050505;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-/* ---------- HEADER ---------- */
+/* HEADER */
 header {
-  width: 100%;
-  padding: 28px 0;
-  background: rgba(10,10,10,0.85);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,255,255,0.3);
-  box-shadow: 0 0 25px rgba(0,255,255,0.1);
+    width: 100%;
+    padding: 24px 0;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,255,255,0.25);
+    box-shadow: 0 0 25px rgba(0,255,255,0.2);
 }
 
-h1 {
-  text-align: center;
-  color: #0ff;
-  font-size: 34px;
-  letter-spacing: 1px;
-  text-shadow: 0 0 20px #00ffff;
+header h1 {
+    color: #0ff;
+    font-size: 34px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 18px #00ffff;
 }
 
 nav {
-  margin-top: 12px;
-  display: flex;
-  justify-content: center;
-  gap: 35px;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
 }
 
 nav a {
-  color: #0ff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  transition: .3s;
-  opacity: 0.9;
+    color: #0ff;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0.85;
+    transition: .3s;
 }
-nav a:hover {opacity: 1; transform: translateY(-2px);}
 
-/* ---------- HERO / BANNER ---------- */
+nav a:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* BANNER */
 .banner {
-  width: 90%;
-  margin: 35px auto;
-  padding: 55px 25px;
-  text-align: center;
-  font-size: 30px;
-  font-weight: bold;
-  background: linear-gradient(135deg,#0ff,#00aaff);
-  color: #000;
-  border-radius: 18px;
-  box-shadow: 0 0 35px rgba(0,255,255,0.5);
-  animation: glowPulse 3s infinite alternate;
+    width: 92%;
+    margin: 30px auto;
+    background: linear-gradient(135deg,#00ffff,#0066ff);
+    padding: 60px 25px;
+    border-radius: 18px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    box-shadow: 0 0 40px rgba(0,255,255,0.6);
+    text-shadow: 0 0 10px #00f;
+    animation: pulseGlow 3s infinite alternate;
 }
 
-@keyframes glowPulse {
-  from { box-shadow: 0 0 25px rgba(0,255,255,0.4); }
-  to   { box-shadow: 0 0 55px rgba(0,255,255,0.8); }
+@keyframes pulseGlow {
+    from { box-shadow: 0 0 25px rgba(0,255,255,0.5); }
+    to   { box-shadow: 0 0 55px rgba(0,255,255,0.8); }
 }
 
-/* ---------- MAIN CONTAINER ---------- */
+/* CONTAINER */
 .container {
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 0 25px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
-/* ---------- BUTTON ---------- */
+/* BUTTON */
 #genBtn {
-  display: block;
-  margin: 0 auto 40px auto;
-  padding: 18px 42px;
-  background: #000;
-  color: #0ff;
-  border: 1px solid #0ff;
-  border-radius: 16px;
-  font-size: 20px;
-  font-weight: bold;
-  box-shadow: 0 0 25px rgba(0,255,255,0.4);
-  cursor: pointer;
-  transition: .3s;
-}
-#genBtn:hover {
-  background: #0ff;
-  color: #000;
-  transform: translateY(-4px);
-  box-shadow: 0 0 50px rgba(0,255,255,0.8);
+    padding: 18px 42px;
+    border: 1px solid #0ff;
+    background: #000;
+    color: #0ff;
+    font-size: 20px;
+    border-radius: 16px;
+    font-weight: bold;
+    display: block;
+    margin: 0 auto 35px auto;
+    box-shadow: 0 0 25px rgba(0,255,255,0.45);
+    transition: 0.3s;
+    cursor: pointer;
 }
 
-/* ---------- WALLET BOX ---------- */
-.wallet-box {
-  width: 100%;
-  background: rgba(15,15,15,0.7);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(0,255,255,0.4);
-  padding: 30px;
-  border-radius: 18px;
-  margin-bottom: 40px;
-  box-shadow: 0 0 25px rgba(0,255,255,0.2);
-  transition: .35s;
+#genBtn:hover {
+    background: #0ff;
+    color: #000;
+    box-shadow: 0 0 45px rgba(0,255,255,0.9);
+    transform: translateY(-4px);
 }
+
+/* WALLET BOX */
+.wallet-box {
+    width: 100%;
+    background: rgba(12,12,12,0.85);
+    backdrop-filter: blur(10px);
+    padding: 28px;
+    border-radius: 18px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(0,255,255,0.4);
+    box-shadow: 0 0 25px rgba(0,255,255,0.25);
+    transition: .35s;
+}
+
 .wallet-box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 55px rgba(0,255,255,0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 0 55px rgba(0,255,255,0.55);
 }
 
 .title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #0ff;
-  text-shadow: 0 0 10px #00ffff;
-  margin-bottom: 18px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #0ff;
+    text-shadow: 0 0 10px #00ffff;
 }
 
 .label {
-  font-size: 16px;
-  margin-top: 10px;
-  opacity: 0.8;
-  color: #c8ffff;
+    opacity: 0.85;
+    margin-top: 12px;
+    font-weight: 500;
+    color: #c8ffff;
 }
 
 .value {
-  margin-top: 6px;
-  word-wrap: break-word;
-  font-family: monospace;
-  font-size: 15px;
-  background: rgba(0,0,0,0.7);
-  padding: 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,255,255,0.4);
-  color: #0ff;
+    word-wrap: break-word;
+    margin-top: 6px;
+    font-family: monospace;
+    background: rgba(0,0,0,0.7);
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(0,255,255,0.4);
+    color: #0ff;
 }
 
-/* ---------- QR ---------- */
+/* QR CODES */
 canvas {
-  display: block;
-  margin: 15px auto;
-  background: #fff;
-  padding: 8px;
-  border-radius: 12px;
-  box-shadow: 0 0 18px rgba(0,255,255,0.3);
+    display: block;
+    margin: 14px auto;
+    background: #fff;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 0 14px rgba(0,255,255,0.3);
 }
 
-/* ---------- FOOTER ---------- */
+/* FOOTER */
 footer {
-  margin-top: 80px;
-  padding: 20px;
-  background: #0b0b0b;
-  text-align: center;
-  border-top: 1px solid rgba(0,255,255,0.3);
+    margin-top: 70px;
+    padding: 20px 10px;
+    background: #0b0b0b;
+    border-top: 1px solid rgba(0,255,255,0.25);
+    text-align: center;
 }
+
 footer p {
-  color: #aaa;
-  font-size: 14px;
+    font-size: 14px;
+    color: #888;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px){
+    header h1 {font-size: 26px;}
+    .banner {font-size: 23px; padding: 45px 20px;}
+    #genBtn {font-size: 17px; padding: 14px 30px;}
 }
 </style>
+
 </head>
+
 <body>
 
 <header>
 <h1>Private Phantom</h1>
 <nav>
-  <a href="#generator">Wallets</a>
-  <a href="#about">About</a>
-  <a href="#blogs">Blogs</a>
+<a href="#generator">Wallet Generator</a>
+<a href="#about">About</a>
+<a href="#contact">Blogs</a>
 </nav>
 </header>
 
-<div class="banner">
-  Generate Secure Wallets for Ethereum, BNB, Bitcoin, Tron & TON
-</div>
+<div class="banner">Generate Secure Wallets for Ethereum, BNB, Bitcoin, Tron & TON</div>
 
 <div class="container" id="generator">
-  <button id="genBtn">Generate All Wallets</button>
-  <div id="output"></div>
+<button id="genBtn">Generate All Wallets</button>
+<div id="output"></div>
 </div>
 
 <footer>
-<p>© 2025 Private Phantom. All rights reserved.</p>
+<p>&copy; 2025 Multi-Chain Wallet Generator. All rights reserved.</p>
 </footer>
 
 <!-- LIBRARIES -->
@@ -207,21 +221,18 @@ window.onload = function() {
 
         div.innerHTML = `
             <div class="title">${title}</div>
-
-            <div class="label">Address</div>
+            <div class="label">Address:</div>
             <div class="value">${address}</div>
             <canvas id="qr_${title}_addr"></canvas>
-
-            <div class="label">Private Key</div>
+            <div class="label">Private Key:</div>
             <div class="value">${privateKey}</div>
             <canvas id="qr_${title}_pk"></canvas>
         `;
 
-        // QR Rendering
         setTimeout(() => {
-            QRCode.toCanvas(document.getElementById(`qr_${title}_addr`), address);
-            QRCode.toCanvas(document.getElementById(`qr_${title}_pk`), privateKey);
-        }, 150);
+            QRCode.toCanvas(document.getElementById(\`qr_${title}_addr\`), address);
+            QRCode.toCanvas(document.getElementById(\`qr_${title}_pk\`), privateKey);
+        }, 200);
 
         return div;
     }
@@ -230,34 +241,38 @@ window.onload = function() {
         const out = document.getElementById("output");
         out.innerHTML = "";
 
-        // Ethereum
+        // Ethereum + BNB
         const eth = ethers.Wallet.createRandom();
-        out.appendChild(createBox("Ethereum", eth.address, eth.privateKey));
-
-        // BNB
         const bnb = ethers.Wallet.createRandom();
+        out.appendChild(createBox("Ethereum", eth.address, eth.privateKey));
         out.appendChild(createBox("BNB Smart Chain", bnb.address, bnb.privateKey));
 
         // Bitcoin
-        const btc = bitcoinjs.ECPair.makeRandom();
-        const btcAddr = bitcoinjs.payments.p2pkh({ pubkey: btc.publicKey }).address;
-        out.appendChild(createBox("Bitcoin", btcAddr, btc.toWIF()));
+        if (typeof bitcoinjs !== 'undefined') {
+            const btc = bitcoinjs.ECPair.makeRandom();
+            const btcAddr = bitcoinjs.payments.p2pkh({ pubkey: btc.publicKey }).address;
+            out.appendChild(createBox("Bitcoin", btcAddr, btc.toWIF()));
+        }
 
         // Tron
-        const tron = TronWeb.utils.accounts.generateAccount();
-        out.appendChild(createBox("Tron", tron.address.base58, tron.privateKey));
+        if (typeof TronWeb !== 'undefined') {
+            const tron = TronWeb.utils.accounts.generateAccount();
+            out.appendChild(createBox("Tron", tron.address.base58, tron.privateKey));
+        }
 
         // TON
-        const ton = new TonWeb();
-        const seed = TonWeb.utils.newSeed();
-        const kp = TonWeb.utils.keyPairFromSeed(seed);
-        out.appendChild(createBox("TON",
-            TonWeb.utils.bytesToHex(kp.publicKey),
-            TonWeb.utils.bytesToHex(kp.secretKey)
-        ));
+        if (typeof TonWeb !== 'undefined') {
+            const ton = new TonWeb();
+            const seed = TonWeb.utils.newSeed();
+            const kp = TonWeb.utils.keyPairFromSeed(seed);
+            out.appendChild(createBox("TON",
+                TonWeb.utils.bytesToHex(kp.publicKey),
+                TonWeb.utils.bytesToHex(kp.secretKey)
+            ));
+        }
     }
 
-    document.getElementById("genBtn").onclick = generateAll;
+    document.getElementById('genBtn').onclick = generateAll;
 };
 </script>
 
